@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qrapp/pages/directions_page.dart';
 import 'package:qrapp/pages/maps_page.dart';
+import 'package:qrapp/providers/db_provider.dart';
 import 'package:qrapp/providers/ui_provider.dart';
 import 'package:qrapp/widgets/custom_navigationbar.dart';
 import 'package:qrapp/widgets/scan_button.dart';
@@ -35,6 +36,9 @@ class _HomePageBody extends StatelessWidget {
     final uiProvider = Provider.of<UiProvider>(context);
     // Widget para cambiar la página actual según el indice recibido
     final currentIndex = uiProvider.selectedMenuOpt;
+
+    // TODO: leer db
+    DBProvider.db.database;
 
     switch (currentIndex) {
       case 0:

@@ -3,12 +3,13 @@ import 'dart:io';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:sqflite_common/sqlite_api.dart';
 
 class DBProvider {
-  static Database _database;
-
-  static final DBProvider db = DBProvider._();
-
+  // static Database _database;
+  Database _database;
+  // static final DBProvider db = DBProvider._();
+  final DBProvider db = DBProvider._();
   DBProvider._();
 
   Future<Database> get database async {
