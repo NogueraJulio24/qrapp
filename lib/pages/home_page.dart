@@ -46,10 +46,6 @@ class _HomePageBody extends StatelessWidget {
     // Widget para cambiar la página actual según el indice recibido
     final currentIndex = uiProvider.selectedMenuOpt;
 
-    // TODO: leer db
-    // final newScan = new ScanModel(value: 'http://google.com');
-    // DBProvider.db.newScan(newScan);
-
     switch (currentIndex) {
       case 0:
         return MapsPage();
