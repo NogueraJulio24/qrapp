@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:qrapp/models/scan_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite_common/sqlite_api.dart';
 
@@ -19,6 +20,7 @@ class DBProvider {
     return _database;
   }
 
+  // Iniciarlizar DB, en caso que ya exista no lo crea.
   Future<Database> initDB() async {
     // get paht de db
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
@@ -36,5 +38,11 @@ class DBProvider {
           )
         ''');
     });
+  }
+
+  Future<int> newScan(ScanModel newScan) async {
+    final db = await database;
+    final res = await db.insert('Scans', newScan.toJson());
+    return res;
   }
 }

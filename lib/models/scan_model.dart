@@ -1,4 +1,7 @@
+// @dart=2.9
 import 'dart:convert';
+
+import 'package:flutter/material.dart';
 
 ScanModel scanModelFromJson(String str) => ScanModel.fromJson(json.decode(str));
 
@@ -6,11 +9,11 @@ String scanModelToJson(ScanModel data) => json.encode(data.toJson());
 
 class ScanModel {
   ScanModel({
-    required this.id,
-    required this.type,
-    required this.value,
+    this.id,
+    this.type,
+    @required this.value,
   }) {
-    if (this.type.contains('http')) {
+    if (this.value.contains('http')) {
       this.type = 'http';
     } else {
       this.type = 'geo';
