@@ -86,7 +86,7 @@ class DBProvider {
     final res = await db.delete(
       'Scans',
       where: 'id = ?',
-      whereArgs: [newScan.id],
+      whereArgs: [id],
     );
 
     return res;
