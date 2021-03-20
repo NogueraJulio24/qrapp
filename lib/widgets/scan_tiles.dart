@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qrapp/providers/scan_list_provider.dart';
+import 'package:qrapp/utils/utils.dart';
 
 class ScanTiles extends StatelessWidget {
   final String type;
@@ -26,13 +27,14 @@ class ScanTiles extends StatelessWidget {
               .deleteById(scans[i].id!);
         },
         child: ListTile(
-            leading: Icon(
-                this.type == 'http' ? Icons.home_outlined : Icons.map_outlined,
-                color: Theme.of(context).primaryColor),
-            title: Text(scans[i].value),
-            subtitle: Text(scans[i].id.toString()),
-            trailing: Icon(Icons.keyboard_arrow_right, color: Colors.grey),
-            onTap: () => print('hola mundo')),
+          leading: Icon(
+              this.type == 'http' ? Icons.home_outlined : Icons.map_outlined,
+              color: Theme.of(context).primaryColor),
+          title: Text(scans[i].value),
+          subtitle: Text(scans[i].id.toString()),
+          trailing: Icon(Icons.keyboard_arrow_right, color: Colors.grey),
+          onTap: () => launchURL(context, scans[i]),
+        ),
       ),
     );
   }
