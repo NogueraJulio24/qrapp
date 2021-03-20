@@ -10,6 +10,7 @@ import 'package:qrapp/pages/maps_page.dart';
 //Providers
 import 'package:provider/provider.dart';
 import 'package:qrapp/providers/db_provider.dart';
+import 'package:qrapp/providers/scan_list_provider.dart';
 import 'package:qrapp/providers/ui_provider.dart';
 
 //Widgets
@@ -46,10 +47,19 @@ class _HomePageBody extends StatelessWidget {
     // Widget para cambiar la página actual según el indice recibido
     final currentIndex = uiProvider.selectedMenuOpt;
 
+    //Usar ScanLisProvider
+    final scanListProvider =
+        Provider.of<ScanListProvider>(context, listen: false);
+
+    final a = scanListProvider.saveScans();
+    print(a);
+
     switch (currentIndex) {
       case 0:
+        scanListProvider.saveScanByType('geo');
         return MapsPage();
       case 1:
+        scanListProvider.saveScanByType('http');
         return DirectionsPage();
       default:
         return MapsPage();
