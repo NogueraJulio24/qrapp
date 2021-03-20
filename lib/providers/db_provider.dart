@@ -25,7 +25,6 @@ class DBProvider {
     // get paht de db
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
     final path = join(documentsDirectory.path, 'ScansDB.db');
-    print(path);
 
     // Create db
     return await openDatabase(path, version: 1, onOpen: (db) {},

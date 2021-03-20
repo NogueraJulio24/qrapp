@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -8,10 +7,14 @@ ScanModel scanModelFromJson(String str) => ScanModel.fromJson(json.decode(str));
 String scanModelToJson(ScanModel data) => json.encode(data.toJson());
 
 class ScanModel {
+  int? id;
+  String? type;
+  String value;
+
   ScanModel({
     this.id,
     this.type,
-    @required this.value,
+    required this.value,
   }) {
     if (this.value.contains('http')) {
       this.type = 'http';
@@ -19,10 +22,6 @@ class ScanModel {
       this.type = 'geo';
     }
   }
-
-  int id;
-  String type;
-  String value;
 
   factory ScanModel.fromJson(Map<String, dynamic> json) => ScanModel(
         id: json["id"],

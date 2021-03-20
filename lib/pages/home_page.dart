@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
+//Models
+import 'package:qrapp/models/scan_model.dart';
+
+//Pages
 import 'package:qrapp/pages/directions_page.dart';
 import 'package:qrapp/pages/maps_page.dart';
+
+//Providers
+import 'package:provider/provider.dart';
 import 'package:qrapp/providers/db_provider.dart';
 import 'package:qrapp/providers/ui_provider.dart';
+
+//Widgets
 import 'package:qrapp/widgets/custom_navigationbar.dart';
 import 'package:qrapp/widgets/scan_button.dart';
 
@@ -38,8 +47,8 @@ class _HomePageBody extends StatelessWidget {
     final currentIndex = uiProvider.selectedMenuOpt;
 
     // TODO: leer db
-    final newScan = new ScanModel(value: 'http://google.com');
-    DBProvider.db.newScan(newScan);
+    // final newScan = new ScanModel(value: 'http://google.com');
+    // DBProvider.db.newScan(newScan);
 
     switch (currentIndex) {
       case 0:
