@@ -3,6 +3,9 @@
    <application
         android:label="qrapp"
         android:icon="@mipmap/ic_launcher">
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyBDGwgQe0I1aqLpaecwKSTvMJep7VcOD28"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
