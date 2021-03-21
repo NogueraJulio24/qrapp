@@ -7,7 +7,7 @@ class ScanListProvider extends ChangeNotifier {
 
   String selectedType = 'http';
 
-  newScan(String value) async {
+  Future<ScanModel> newScan(String value) async {
     final newScan = new ScanModel(value: value);
     final id = await DBProvider.db.newScan(newScan);
     // Asignar id the db al model
@@ -17,6 +17,8 @@ class ScanListProvider extends ChangeNotifier {
       this.scans.add(newScan);
       notifyListeners();
     }
+
+    return newScan;
   }
 
   saveScans() async {
