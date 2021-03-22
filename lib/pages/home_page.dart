@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 //Models
@@ -29,7 +30,33 @@ class HomePage extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.delete),
             onPressed: () {
-              Provider.of<ScanListProvider>(context, listen: false).deleteAll();
+              showDialog(
+                context: context,
+                builder: (BuildContext context) => new CupertinoAlertDialog(
+                  title: Text('Record Delete'),
+                  content: Text('Do you accept?'),
+                  actions: [
+                    CupertinoDialogAction(
+                      child: Text("No"),
+                      isDestructiveAction: false,
+                      onPressed: () {
+                        Navigator.of(context, rootNavigator: true)
+                            .pop("Discard");
+                      },
+                    ),
+                    CupertinoDialogAction(
+                      child: Text("Yes"),
+                      onPressed: () {
+                        Provider.of<ScanListProvider>(context, listen: false)
+                            .deleteAll();
+                        Navigator.of(context, rootNavigator: true)
+                            .pop("Discard");
+                      },
+                      isDestructiveAction: true,
+                    ),
+                  ],
+                ),
+              );
             },
           ),
         ],
