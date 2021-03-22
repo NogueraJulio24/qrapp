@@ -59,13 +59,22 @@ class _MapPageState extends State<MapPage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.layers),
+        child: Icon(Icons.ac_unit),
         onPressed: () {
-          if (mapType == MapType.normal) {
-            mapType = MapType.satellite;
-          } else if (mapType == MapType.satellite) {
-            mapType = MapType.hybrid;
-          }
+          setState(() {
+            if (mapType == MapType.normal) {
+              print('Satellite');
+              mapType = MapType.satellite;
+            } else if (mapType == MapType.satellite) {
+              print('Hybrid');
+              mapType = MapType.hybrid;
+            } else if (mapType == MapType.hybrid) {
+              print('Terrain');
+              mapType = MapType.terrain;
+            } else {
+              mapType = MapType.normal;
+            }
+          });
         },
       ),
     );

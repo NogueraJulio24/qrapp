@@ -24,6 +24,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         // elevation: 0,
         title: Text('Historial'),
+        centerTitle: true,
         actions: [
           IconButton(
             icon: Icon(Icons.delete_forever),
