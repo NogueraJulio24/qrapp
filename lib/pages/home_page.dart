@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         // elevation: 0,
-        title: Text('Historial'),
+        title: Text('Record'),
         centerTitle: true,
         actions: [
           IconButton(
