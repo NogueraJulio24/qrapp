@@ -12,7 +12,7 @@ class CustomNavigationBar extends StatelessWidget {
     return BottomNavigationBar(
       onTap: (int i) => uiProvider.selectedMenuOpt = i,
       currentIndex: currentIndex,
-      elevation: 0,
+      elevation: 15,
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.http),
