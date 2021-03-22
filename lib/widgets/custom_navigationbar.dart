@@ -16,7 +16,7 @@ class CustomNavigationBar extends StatelessWidget {
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.http),
-          label: 'Directions',
+          label: "URL's",
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.map),

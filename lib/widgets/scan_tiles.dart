@@ -14,28 +14,38 @@ class ScanTiles extends StatelessWidget {
 
     final scans = scanListProvider.scans;
 
-    return ListView.builder(
-      itemCount: scans.length,
-      itemBuilder: (_, i) => Dismissible(
-        key: UniqueKey(),
-        background: Container(
-          color: Colors.red,
+    if (scans.length > 0) {
+      return ListView.builder(
+        itemCount: scans.length,
+        itemBuilder: (_, i) => Dismissible(
+          key: UniqueKey(),
+          background: Container(
+            color: Colors.red,
+          ),
+          movementDuration: Duration(milliseconds: 1000),
+          onDismissed: (DismissDirection direction) {
+            Provider.of<ScanListProvider>(context, listen: false)
+                .deleteById(scans[i].id!);
+          },
+          child: ListTile(
+            leading: Icon(
+                this.type == 'http' ? Icons.home_outlined : Icons.map_outlined,
+                color: Theme.of(context).primaryColor),
+            title: Text(scans[i].value),
+            subtitle: Text('Date: ' + scans[i].date.toString()),
+            trailing: Icon(Icons.keyboard_arrow_right, color: Colors.grey),
+            onTap: () => launchURL(context, scans[i]),
+          ),
         ),
-        movementDuration: Duration(milliseconds: 1000),
-        onDismissed: (DismissDirection direction) {
-          Provider.of<ScanListProvider>(context, listen: false)
-              .deleteById(scans[i].id!);
-        },
-        child: ListTile(
-          leading: Icon(
-              this.type == 'http' ? Icons.home_outlined : Icons.map_outlined,
-              color: Theme.of(context).primaryColor),
-          title: Text(scans[i].value),
-          subtitle: Text('Date: ' + scans[i].date.toString()),
-          trailing: Icon(Icons.keyboard_arrow_right, color: Colors.grey),
-          onTap: () => launchURL(context, scans[i]),
+      );
+    } else {
+      return Center(
+        child: Image(
+          image: AssetImage('assets/buscar.png'),
+          width: 150,
+          height: 150,
         ),
-      ),
-    );
+      );
+    }
   }
 }
