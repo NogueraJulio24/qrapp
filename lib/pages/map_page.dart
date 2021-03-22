@@ -51,6 +51,7 @@ class _MapPageState extends State<MapPage> {
         ],
       ),
       body: GoogleMap(
+        myLocationButtonEnabled: false,
         mapType: mapType,
         initialCameraPosition: initialPosition,
         markers: markers,
