@@ -35,7 +35,7 @@ class _MapPageState extends State<MapPage> {
         title: Text('Maps'),
         actions: [
           IconButton(
-            icon: Icon(Icons.location_city_sharp),
+            icon: Icon(Icons.gps_fixed),
             onPressed: () async {
               final GoogleMapController controller = await _controller.future;
               controller.animateCamera(
@@ -60,7 +60,7 @@ class _MapPageState extends State<MapPage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.ac_unit),
+        child: Icon(Icons.layers),
         onPressed: () {
           setState(() {
             if (mapType == MapType.normal) {
