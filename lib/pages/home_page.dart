@@ -59,13 +59,13 @@ class _HomePageBody extends StatelessWidget {
 
     switch (currentIndex) {
       case 0:
-        scanListProvider.saveScanByType('geo');
-        return MapsPage();
-      case 1:
         scanListProvider.saveScanByType('http');
         return DirectionsPage();
-      default:
+      case 1:
+        scanListProvider.saveScanByType('geo');
         return MapsPage();
+      default:
+        return DirectionsPage();
     }
   }
 }

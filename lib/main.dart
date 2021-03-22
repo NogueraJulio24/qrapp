@@ -27,10 +27,10 @@ class MyApp extends StatelessWidget {
           'home': (_) => HomePage(),
           'map': (_) => MapPage(),
         },
-        theme: ThemeData.dark().copyWith(
-            primaryColor: Colors.deepPurple,
+        theme: ThemeData.light().copyWith(
+            primaryColor: Colors.blue,
             floatingActionButtonTheme: FloatingActionButtonThemeData(
-              backgroundColor: Colors.deepPurple,
+              backgroundColor: Colors.blue,
             )),
       ),
     );
