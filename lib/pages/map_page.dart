@@ -63,13 +63,10 @@ class _MapPageState extends State<MapPage> {
         onPressed: () {
           setState(() {
             if (mapType == MapType.normal) {
-              print('Satellite');
               mapType = MapType.satellite;
             } else if (mapType == MapType.satellite) {
-              print('Hybrid');
               mapType = MapType.hybrid;
             } else if (mapType == MapType.hybrid) {
-              print('Terrain');
               mapType = MapType.terrain;
             } else {
               mapType = MapType.normal;
