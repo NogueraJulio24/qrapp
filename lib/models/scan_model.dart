@@ -11,11 +11,13 @@ class ScanModel {
   int? id;
   String? type;
   String value;
+  String date;
 
   ScanModel({
     this.id,
     this.type,
     required this.value,
+    required this.date,
   }) {
     if (this.value.contains('http')) {
       this.type = 'http';
@@ -36,11 +38,13 @@ class ScanModel {
         id: json["id"],
         type: json["type"],
         value: json["value"],
+        date: json["date"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
         "type": type,
         "value": value,
+        "date": date,
       };
 }

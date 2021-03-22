@@ -34,7 +34,8 @@ class DBProvider {
           CREATE TABLE Scans(
             id INTEGER PRIMARY KEY,
             type TEXT,
-            value TEXT
+            value TEXT,
+            date TEXT
           )
         ''');
     });
@@ -42,6 +43,7 @@ class DBProvider {
 
   Future<int> newScan(ScanModel newScan) async {
     final db = await database;
+    print(newScan.toJson());
     final res = await db.insert('Scans', newScan.toJson());
     //retorna el ID
     return res;

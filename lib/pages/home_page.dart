@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.delete_forever),
+            icon: Icon(Icons.delete),
             onPressed: () {
               Provider.of<ScanListProvider>(context, listen: false).deleteAll();
             },
