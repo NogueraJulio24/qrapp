@@ -12,25 +12,60 @@ class MapPage extends StatefulWidget {
 
 class _MapPageState extends State<MapPage> {
   Completer<GoogleMapController> _controller = Completer();
+  MapType mapType = MapType.normal;
 
   @override
   Widget build(BuildContext context) {
+    final ScanModel scan = ModalRoute.of(context).settings.arguments;
+
     final CameraPosition initialPosition = CameraPosition(
-      target: LatLng(37.42796133580664, -122.085749655962),
-      zoom: 14.4746,
+      target: scan.getLatLng(),
+      zoom: 17,
     );
 
-    final ScanModel scan = ModalRoute.of(context).settings.arguments;
+    //Markert
+    Set<Marker> markers = new Set<Marker>();
+    markers.add(new Marker(
+      markerId: MarkerId('location'),
+      position: scan.getLatLng(),
+    ));
 
     return Scaffold(
       appBar: AppBar(
         title: Text('Maps'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.location_city_sharp),
+            onPressed: () async {
+              final GoogleMapController controller = await _controller.future;
+              controller.animateCamera(
+                CameraUpdate.newCameraPosition(
+                  CameraPosition(
+                    target: scan.getLatLng(),
+                    zoom: 17,
+                  ),
+                ),
+              );
+            },
+          )
+        ],
       ),
       body: GoogleMap(
-        mapType: MapType.hybrid,
+        mapType: mapType,
         initialCameraPosition: initialPosition,
+        markers: markers,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.layers),
+        onPressed: () {
+          if (mapType == MapType.normal) {
+            mapType = MapType.satellite;
+          } else if (mapType == MapType.satellite) {
+            mapType = MapType.hybrid;
+          }
         },
       ),
     );
