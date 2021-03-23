@@ -8,6 +8,7 @@ class HistoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.blueAccent,
         appBar: AppBar(
           // elevation: 0,
           title: Text('QR History'),
