@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: _HomePageBody(),
       bottomNavigationBar: CustomNavigationBar(),
-      //floatingActionButton: ScanButton(),
+      floatingActionButton: ScanButton(),
     );
   }
 }
