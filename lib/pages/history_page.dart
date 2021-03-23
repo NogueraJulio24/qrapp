@@ -10,11 +10,26 @@ class HistoryPage extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.blueAccent,
         appBar: AppBar(
-          // elevation: 0,
-          title: Text('QR History'),
+          elevation: 20,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(20),
+            ),
+          ),
+          title: Text(
+            'QR History',
+            style: TextStyle(color: Colors.black),
+          ),
           centerTitle: true,
+          backgroundColor: Colors.white,
           actions: [
             IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.qr_code),
+              color: Colors.black,
+            ),
+            IconButton(
+              color: Colors.black,
               icon: Icon(Icons.delete),
               onPressed: () {
                 showDialog(
@@ -46,7 +61,6 @@ class HistoryPage extends StatelessWidget {
                 );
               },
             ),
-            IconButton(onPressed: () {}, icon: Icon(Icons.filter)),
           ],
         ),
         body: ScanTiles(type: 'http'));
