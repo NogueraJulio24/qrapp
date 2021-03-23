@@ -6,6 +6,7 @@ import 'package:qrapp/models/scan_model.dart';
 
 //Pages
 import 'package:qrapp/pages/directions_page.dart';
+import 'package:qrapp/pages/history_page.dart';
 import 'package:qrapp/pages/maps_page.dart';
 
 //Providers
@@ -91,6 +92,10 @@ class _HomePageBody extends StatelessWidget {
       case 1:
         scanListProvider.saveScanByType('geo');
         return MapsPage();
+      case 2:
+        return HistoryPage();
+      case 3:
+        return HistoryPage();
       default:
         return DirectionsPage();
     }
