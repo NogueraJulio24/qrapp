@@ -21,15 +21,15 @@ class CustomNavigationBar extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.qr_code),
-          label: "No",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.qr_code),
           label: "Create",
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.map),
-          label: 'Create',
+          icon: Icon(Icons.star),
+          label: "Favorites",
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.settings),
+          label: 'Settings',
         ),
       ],
     );

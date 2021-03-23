@@ -23,45 +23,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        // elevation: 0,
-        title: Text('Record'),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            icon: Icon(Icons.delete),
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (BuildContext context) => new CupertinoAlertDialog(
-                  title: Text('Record Delete'),
-                  content: Text('Do you accept?'),
-                  actions: [
-                    CupertinoDialogAction(
-                      child: Text("No"),
-                      isDestructiveAction: false,
-                      onPressed: () {
-                        Navigator.of(context, rootNavigator: true)
-                            .pop("Discard");
-                      },
-                    ),
-                    CupertinoDialogAction(
-                      child: Text("Yes"),
-                      onPressed: () {
-                        Provider.of<ScanListProvider>(context, listen: false)
-                            .deleteAll();
-                        Navigator.of(context, rootNavigator: true)
-                            .pop("Discard");
-                      },
-                      isDestructiveAction: true,
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
-        ],
-      ),
       body: _HomePageBody(),
       bottomNavigationBar: CustomNavigationBar(),
       floatingActionButton: ScanButton(),
@@ -87,13 +48,13 @@ class _HomePageBody extends StatelessWidget {
 
     switch (currentIndex) {
       case 0:
-        scanListProvider.saveScanByType('http');
-        return DirectionsPage();
+        return HistoryPage();
       case 1:
         scanListProvider.saveScanByType('geo');
         return MapsPage();
       case 2:
-        return HistoryPage();
+        scanListProvider.saveScanByType('http');
+        return DirectionsPage();
       case 3:
         return HistoryPage();
       default:
