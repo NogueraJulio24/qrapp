@@ -28,7 +28,8 @@ class ScanTiles extends StatelessWidget {
                 .deleteById(scans[i].id!);
           },
           child: ListTile(
-            leading: Icon(this.type == 'http' ? Icons.http : Icons.map_outlined,
+            leading: Icon(
+                this.type == 'http' ? Icons.http_outlined : Icons.map_outlined,
                 color: Colors.white),
             title: Text(scans[i].value),
             subtitle: Text('Date: ' + scans[i].date.toString()),

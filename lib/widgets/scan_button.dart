@@ -12,7 +12,7 @@ class ScanButton extends StatelessWidget {
       elevation: 0,
       onPressed: () async {
         String barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
-            '#3d8bef', 'Cancel', true, ScanMode.QR);
+            '#3d8bef', 'Cancel', true, ScanMode.DEFAULT);
 
         DateTime hour = DateTime.now();
         String hourString = DateFormat('dd-MM-yyyy – kk:mm').format(hour);
