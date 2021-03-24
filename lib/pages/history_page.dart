@@ -10,6 +10,10 @@ class HistoryPage extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.blueAccent,
         appBar: AppBar(
+          leading: IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.shop_two),
+              color: Colors.black),
           elevation: 20,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
