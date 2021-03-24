@@ -21,7 +21,7 @@ class HistoryPage extends StatelessWidget {
             ),
           ),
           title: Text(
-            'QR History',
+            'QR History ',
             style: TextStyle(color: Colors.black),
           ),
           centerTitle: true,
