@@ -29,11 +29,11 @@ class ScanTiles extends StatelessWidget {
           },
           child: ListTile(
             leading: Icon(
-                this.type == 'http' ? Icons.home_outlined : Icons.map_outlined,
-                color: Theme.of(context).primaryColor),
+                this.type == 'http' ? Icons.http_outlined : Icons.map_outlined,
+                color: Colors.white),
             title: Text(scans[i].value),
             subtitle: Text('Date: ' + scans[i].date.toString()),
-            trailing: Icon(Icons.keyboard_arrow_right, color: Colors.grey),
+            trailing: Icon(Icons.keyboard_arrow_right, color: Colors.white24),
             onTap: () => launchURL(context, scans[i]),
           ),
         ),
